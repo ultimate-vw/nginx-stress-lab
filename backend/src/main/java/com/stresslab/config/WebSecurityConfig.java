@@ -13,7 +13,7 @@ public class WebSecurityConfig {
         http
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(auth -> auth.anyRequest().permitAll())
-                .httpBasic(httpBasic -> {}); // doesn't matter anymore
+                .httpBasic(httpBasic -> {});
         return http.build();
     }
 
