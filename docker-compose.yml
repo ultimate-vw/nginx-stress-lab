@@ -1,6 +1,55 @@
-version: '3.8'
+#version: '3.8'
+#
+#services:
+#
+#  nginx:
+#    image: nginx:latest
+#    container_name: nginx
+#    ports:
+#      - "8080:80"
+#    volumes:
+#      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+#      - ./nginx/html:/usr/share/nginx/html:ro
+#    networks:
+#      - stress-net
+#    depends_on:
+#      - backend
+#
+#  backend:
+#    build:
+#      context: ./backend
+#    container_name: backend
+#    ports:
+#      - "8081:8081"
+#    networks:
+#      - stress-net
+#
+#  locust:
+#    image: locustio/locust
+#    container_name: locust-runner
+#    volumes:
+#      - ./load-test:/mnt/locust
+#    ports:
+#      - "8089:8089"
+#    working_dir: /mnt/locust
+#    command: >
+#      -f locustfile.py --headless -u 1000 -r 100 --run-time 1m --host=http://nginx
+#    networks:
+#      - stress-net
+#
+#networks:
+#  stress-net:
+#    driver: bridge
 
 services:
+  backend:
+    build:
+      context: ./backend
+    container_name: backend
+    ports:
+      - "8081:8081"
+    networks:
+      - stress-net
 
   nginx:
     image: nginx:latest
@@ -15,15 +64,6 @@ services:
     depends_on:
       - backend
 
-  backend:
-    build:
-      context: ./backend
-    container_name: backend
-    ports:
-      - "8081:8081"
-    networks:
-      - stress-net
-
   locust:
     image: locustio/locust
     container_name: locust-runner
@@ -33,7 +73,7 @@ services:
       - "8089:8089"
     working_dir: /mnt/locust
     command: >
-      -f locustfile.py --headless -u 1000 -r 100 --run-time 1m --host=http://nginx
+      -f locustfile.py --host=http://nginx
     networks:
       - stress-net
 
