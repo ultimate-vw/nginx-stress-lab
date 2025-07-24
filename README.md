@@ -60,17 +60,13 @@ Stop the stack with `Ctrl+C` or `docker compose down`.
 
 Locust command-line options are controlled through the `LOCUST_OPTS` environment variable. Copy `.env.example` to `.env` and adjust it or pass the variable directly:
 
-```bash
+[//]: # (```bash)
+
 # Headless run
 LOCUST_OPTS="--headless -u 100 -r 10 --run-time 1m" ./run.sh
 
 # Run with UI and custom spawn rate
 LOCUST_OPTS="-u 50 -r 5" ./run.sh
-
-
-
-
-
 
 
 
