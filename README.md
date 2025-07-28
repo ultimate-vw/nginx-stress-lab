@@ -28,7 +28,7 @@ flowchart TB
 # 1. Copy configuration
 cp .env.template .env
 # 2. Launch everything
-docker-compose up -d
+./run.sh
 # 3. Verify services
 ./check.sh
 # 4. Open dashboards:
