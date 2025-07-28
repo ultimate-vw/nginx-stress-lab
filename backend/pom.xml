@@ -36,6 +36,12 @@
             <artifactId>micrometer-registry-prometheus</artifactId>
             <version>1.13.1</version> <!-- Or whatever is current -->
         </dependency>
+        <dependency>
+            <groupId>net.logstash.logback</groupId>
+            <artifactId>logstash-logback-encoder</artifactId>
+            <version>7.4</version>
+        </dependency>
+
 
 
     </dependencies>

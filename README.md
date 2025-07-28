@@ -2,6 +2,43 @@
 The primary aim of this application is stress testing the endpoint with the help of nginx.
 
 
+## Architecture Overview
+
+```mermaid
+flowchart TB
+  A["🐞 Locust UI<br/>(Port 8089)"]
+  B["🌀 NGINX Proxy<br/>(Port 8080)"]
+  C["🌱 Spring Boot API<br/>(Port 8081 /api)"]
+  D["📦 Logstash"]
+  E["🔍 Elasticsearch"]
+  F["📈 Kibana"]
+  G["⏱️ Prometheus"]
+  H["📊 Grafana"]
+
+  A --> B --> C
+  C --> D --> E --> F
+  C --> G --> H
+
+  classDef boxStyle fill:#ffffff,stroke:#333333,stroke-width:1px,rx:5px,ry:5px,font-size:18px;
+  class A,B,C,D,E,F,G,H boxStyle;
+```
+
+# Quickstart
+
+# 1. Copy configuration
+cp .env.template .env
+# 2. Launch everything
+docker-compose up -d
+# 3. Verify services
+./check.sh
+# 4. Open dashboards:
+#    - Locust UI:   http://localhost:8089
+#    - Kibana:      http://localhost:5601
+#    - Grafana:     http://localhost:3000
+#    - Prometheus:  http://localhost:9090
+
+
+
 nginx-stress-lab is a Docker-based setup for stressing an endpoint. It contains a Spring Boot backend, an NGINX server, and a Locust load-test harness orchestrated through docker-compose.
 
 Key components:
