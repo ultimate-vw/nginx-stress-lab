@@ -1,5 +1,5 @@
 # nginx-stress-lab
-The primary aim of this application is stress testing the endpoint with the help of nginx.
+The primary aim of this application is stress testing the REST endpoint with the help of nginx.
 
 
 ## Architecture Overview
