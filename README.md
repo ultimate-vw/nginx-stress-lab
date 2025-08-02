@@ -32,10 +32,10 @@ cp .env.template .env
 # 3. Verify services
 ./check.sh
 # 4. Open dashboards:
-#    - Locust UI:   http://localhost:8089
-#    - Kibana:      http://localhost:5601
-#    - Grafana:     http://localhost:3000
-#    - Prometheus:  http://localhost:9090
+    - Locust UI:   http://localhost:8089
+    - Kibana:      http://localhost:5601
+    - Grafana:     http://localhost:3000
+    - Prometheus:  http://localhost:9090
 
 
 
